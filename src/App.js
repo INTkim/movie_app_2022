@@ -1,24 +1,16 @@
 import React from 'react';
+import './App.css';          // html => 글자(구조), css => 꾸미기(인테리어), js => 기능(스마트 홈)
+import {HashRouter, Route} from 'react-router-dom';
+import About from './routes/About';
+import Home from "./routes/Home";
 
-class App extends React.Component{ //기능을 물려받은
-  state = {
-    isLoading:true,
-    movies: [],
-  }
-
-  componentDidMount(){
-    setTimeout(()=>{
-      this.setState({isLoading:false});
-    }, 3000);
-  }
-
-
-  render(){
-    const {isLoading} = this.state;
-    return(
-      <div>{isLoading ? "Loading..." : "준비 완료" }</div>//3항 연산,
-    )
-  }
+function App(){
+  return (
+    <HashRouter>
+    <Route path="/" component={Home}/>
+    <Route path="/about" component={About}/>
+    </HashRouter>
+  );
 }
 
 export default App;
