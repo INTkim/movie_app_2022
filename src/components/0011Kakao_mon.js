@@ -1,24 +1,29 @@
 import React from 'react';
 import axios from 'axios';
-import Movie from '../components/Webtoon';
+import Movie from './Webtoon';
 import './Home.css';
 
-class Home extends React.Component {
+var Api_Link = `https://korea-webtoon-api.herokuapp.com/?perPage=50&service=kakaoPage&updateDay=mon`;
+
+
+
+class Kakao_mon extends React.Component {
+  
   state = {
     isLoading: true,
     movies: [],
   };
-  getMovies = async () => {
-    const {
-      data: {
-        data: { movies },
-      },
-    } = await axios.get('https://yts-proxy.now.sh/list_movies.json?sort_by=rating');
-    this.setState({ movies, isLoading: false });
-  };
+
+  getMovies = async (params) => {
+    const movies = await axios.get(Api_Link);
+    this.setState({ movies:movies.data.webtoons, isLoading: false });
+    console.log(movies);
+  }
+
   componentDidMount() {
     this.getMovies();
   }
+
   render() {
     const { isLoading, movies } = this.state;
     return (
@@ -32,13 +37,11 @@ class Home extends React.Component {
             {movies.map((movie) => {
               return (
                 <Movie
-                  key={movie.id}
-                  id={movie.id}
-                  year={movie.year}
                   title={movie.title}
-                  summary={movie.summary}
-                  poster={movie.medium_cover_image}
-                  genres={movie.genres}
+                  author={movie.author}
+                  img={movie.img}
+                  service={movie.service}
+                  url={movie.url}
                 />
               );
             })}
@@ -49,4 +52,4 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
+export default Kakao_mon;

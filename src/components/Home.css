@@ -12,11 +12,12 @@
   align-items: center;
   font-weight: 300;
 }
+
 .movies {
   display: grid;
-  grid-template-columns: repeat(2, minmax(400px, 1fr));
-  grid-gap: 100px;
-  padding: 50px;
+  grid-template-columns: repeat(5, minmax(200px, 1fr));
+  grid-gap: 70px;
+  padding: 19px;
   width: 80%;
   padding-top: 70px;
 }

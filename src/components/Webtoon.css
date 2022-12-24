@@ -1,0 +1,43 @@
+.webtoon {
+  background-color: rgba(186, 187, 248, 0.459);
+  margin-bottom: 20px;
+  font-weight: 100;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25), 0 8px 16px -8px rgba(0, 0, 0, 0.3),
+    0 -6px 16px -6px rgba(0, 0, 0, 0.025);
+}
+
+.movies .webtoon a {
+  display: grid;
+  grid-template-columns: minmax(150px, 3fr) 3fr;
+  grid-gap: 20px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.webtoon img {
+  position: relative;
+  max-width: 285px;
+  width: 100%;
+  margin-right: 30px;
+  box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25), 0 18px 36px -18px rgba(0, 0, 0, 0.3),
+    0 -12px 36px -8px rgba(0, 0, 0, 0.025);
+}
+
+
+.webtoon .webtoon__title {
+  margin-bottom: 5px;
+  font-size: 30px;
+  color: #2c2c2c;
+}
+
+.webtoon .webtoon__author {
+  font-size: 20px;
+  color: #30282c;
+}
+
+.webtoon .webtoon__service {
+  font-size: 18px;
+  color: #30282c;
+}
